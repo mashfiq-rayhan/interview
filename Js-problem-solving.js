@@ -1,4 +1,4 @@
-// ✅ BASIC PROBLEM-SOLVING
+// ✅ BASIC
 
 // 1. Reverse a string without using .reverse()
 function reverseString(str) {
@@ -162,7 +162,7 @@ function memoize(fn) {
 }
 
 
-// ✅ ADVANCED PROBLEM-SOLVING
+// ✅ ADVANCED
 
 // 1. Custom Promise.all
 function customPromiseAll(promises) {
