@@ -27,7 +27,8 @@ function factorialIterative(n) {
 
 // 4. Find the largest and smallest number in an array
 function findMinMax(arr) {
-  let min = arr[0], max = arr[0];
+  let min = arr[0],
+    max = arr[0];
   for (let num of arr) {
     if (num < min) min = num;
     if (num > max) max = num;
@@ -47,7 +48,13 @@ function removeDuplicates(arr) {
 
 // 7. Check if two strings are anagrams
 function areAnagrams(str1, str2) {
-  const format = s => s.toLowerCase().replace(/[^a-z0-9]/g, '').split('').sort().join('');
+  const format = (s) =>
+    s
+      .toLowerCase()
+      .replace(/[^a-z0-9]/g, '')
+      .split('')
+      .sort()
+      .join('');
   return format(str1) === format(str2);
 }
 
@@ -71,8 +78,7 @@ function isPrime(num) {
   return true;
 }
 
-
-// ✅ INTERMEDIATE PROBLEM-SOLVING
+// ✅ INTERMEDIATE
 
 // 1. Debounce
 function debounce(fn, delay) {
@@ -90,7 +96,7 @@ function throttle(fn, limit) {
     if (!inThrottle) {
       fn.apply(this, args);
       inThrottle = true;
-      setTimeout(() => inThrottle = false, limit);
+      setTimeout(() => (inThrottle = false), limit);
     }
   };
 }
@@ -102,7 +108,7 @@ function deepClone(obj) {
 
 // 4. Intersection of arrays
 function arrayIntersection(arr1, arr2) {
-  return arr1.filter(x => arr2.includes(x));
+  return arr1.filter((x) => arr2.includes(x));
 }
 
 // 5. Group by property
@@ -148,7 +154,7 @@ function toCamelCase(str) {
   return str.replace(/[-_](.)/g, (_, c) => c.toUpperCase());
 }
 function toSnakeCase(str) {
-  return str.replace(/[A-Z]/g, letter => `_${letter.toLowerCase()}`);
+  return str.replace(/[A-Z]/g, (letter) => `_${letter.toLowerCase()}`);
 }
 
 // 10. Memoization
@@ -161,22 +167,32 @@ function memoize(fn) {
   };
 }
 
-
 // ✅ ADVANCED
 
 // 1. Custom Promise.all
 function customPromiseAll(promises) {
   return new Promise((resolve, reject) => {
-    let results = [], count = 0;
+    let results = [],
+      count = 0;
     promises.forEach((p, i) => {
-      Promise.resolve(p).then(val => {
-        results[i] = val;
-        count++;
-        if (count === promises.length) resolve(results);
-      }).catch(reject);
+      Promise.resolve(p)
+        .then((val) => {
+          results[i] = val;
+          count++;
+          if (count === promises.length) resolve(results);
+        })
+        .catch(reject);
     });
   });
 }
+
+const p1 = Promise.resolve(1);
+const p2 = new Promise(res => setTimeout(() => res(2), 100));
+const p3 = 3; // not a promise
+
+customPromiseAll([p1, p2, p3])
+  .then(console.log)  // [1, 2, 3]
+  .catch(console.error);
 
 // 2. LRU Cache
 class LRUCache {
@@ -202,10 +218,12 @@ class LRUCache {
 function retry(fn, retries, delay) {
   return new Promise((resolve, reject) => {
     function attempt(n) {
-      fn().then(resolve).catch(err => {
-        if (n === 0) reject(err);
-        else setTimeout(() => attempt(n - 1), delay);
-      });
+      fn()
+        .then(resolve)
+        .catch((err) => {
+          if (n === 0) reject(err);
+          else setTimeout(() => attempt(n - 1), delay);
+        });
     }
     attempt(retries);
   });
@@ -231,16 +249,18 @@ function flattenObject(obj, parent = '', res = {}) {
 
 // 6. Event Emitter
 class EventEmitter {
-  constructor() { this.events = {}; }
+  constructor() {
+    this.events = {};
+  }
   on(event, listener) {
     if (!this.events[event]) this.events[event] = [];
     this.events[event].push(listener);
   }
   emit(event, ...args) {
-    if (this.events[event]) this.events[event].forEach(fn => fn(...args));
+    if (this.events[event]) this.events[event].forEach((fn) => fn(...args));
   }
   off(event, listener) {
-    this.events[event] = this.events[event].filter(fn => fn !== listener);
+    this.events[event] = this.events[event].filter((fn) => fn !== listener);
   }
 }
 
@@ -254,7 +274,8 @@ function curry(fn) {
 
 // 8. Binary search
 function binarySearch(arr, target) {
-  let l = 0, r = arr.length - 1;
+  let l = 0,
+    r = arr.length - 1;
   while (l <= r) {
     let mid = Math.floor((l + r) / 2);
     if (arr[mid] === target) return mid;
@@ -265,7 +286,8 @@ function binarySearch(arr, target) {
 
 // 9. Maximum Subarray (Kadane's Algorithm)
 function maxSubArray(nums) {
-  let maxSoFar = nums[0], curr = nums[0];
+  let maxSoFar = nums[0],
+    curr = nums[0];
   for (let i = 1; i < nums.length; i++) {
     curr = Math.max(nums[i], curr + nums[i]);
     maxSoFar = Math.max(maxSoFar, curr);
@@ -294,8 +316,7 @@ Function.prototype.myBind = function (ctx, ...args) {
   };
 };
 
-
-// ✅ SCENARIO-BASED PROBLEM-SOLVING
+// ✅ SCENARIO-BASED
 
 // 1. Top 10 largest numbers efficiently
 function top10Largest(arr) {
@@ -338,8 +359,8 @@ function fastestAPI(promises) {
 // 6. Lazy loading images
 function lazyLoad() {
   const imgs = document.querySelectorAll('img[data-src]');
-  const observer = new IntersectionObserver(entries => {
-    entries.forEach(entry => {
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
       if (entry.isIntersecting) {
         const img = entry.target;
         img.src = img.dataset.src;
@@ -347,7 +368,7 @@ function lazyLoad() {
       }
     });
   });
-  imgs.forEach(img => observer.observe(img));
+  imgs.forEach((img) => observer.observe(img));
 }
 
 // 7. Scheduler function
@@ -363,7 +384,7 @@ function hasCircular(obj, seen = new Set()) {
   if (obj && typeof obj === 'object') {
     if (seen.has(obj)) return true;
     seen.add(obj);
-    return Object.values(obj).some(val => hasCircular(val, seen));
+    return Object.values(obj).some((val) => hasCircular(val, seen));
   }
   return false;
 }
@@ -373,7 +394,9 @@ function hasCircular(obj, seen = new Set()) {
 
 // 10. Merge two sorted arrays
 function mergeSortedArrays(arr1, arr2) {
-  let i = 0, j = 0, res = [];
+  let i = 0,
+    j = 0,
+    res = [];
   while (i < arr1.length && j < arr2.length) {
     if (arr1[i] < arr2[j]) res.push(arr1[i++]);
     else res.push(arr2[j++]);
