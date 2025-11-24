@@ -1,5 +1,58 @@
 // ✅ BASIC
 
+// 1. Write a function to reverse a string without using the built-in `.reverse()` method.
+// 2. Write a function to check if a given string is a palindrome (reads the same forward and backward).
+// 3. Write two functions to calculate the factorial of a number — one using recursion and another using iteration.
+// 4. Write a function that takes an array of numbers and returns both the largest and smallest number.
+// 5. Write a function that counts the number of vowels (a, e, i, o, u) in a given string.
+// 6. Write a function that removes duplicate values from an array and returns a new array with unique elements.
+// 7. Write a function to determine if two strings are anagrams (contain the same characters in a different order).
+// 8. Write a function to find the second largest element in an array of numbers.
+// 9. Write a function that flattens a nested array (of any depth) into a single-level array.
+// 10. Write a function to check if a given number is a prime number.
+
+// ✅ INTERMEDIATE
+
+// 1. Implement a `debounce` function that delays the execution of a given function until after a specified time has passed since the last call.
+// 2. Implement a `throttle` function that ensures a given function is executed at most once every specified time interval.
+// 3. Implement a function that performs a deep clone (deep copy) of a given JavaScript object.
+// 4. Write a function that returns the intersection (common elements) of two arrays.
+// 5. Write a function that groups an array of objects by a specified property and returns an object where keys are property values.
+// 6. Write a function to generate a Fibonacci sequence up to a given number of elements.
+// 7. Write a function to find the first non-repeated (unique) character in a string.
+// 8. Solve the Two Sum problem: given an array of numbers and a target sum, return the indices of the two numbers that add up to the target.
+// 9. Write two functions — one that converts a string to `camelCase` and another that converts it to `snake_case`.
+// 10. Implement a `memoize` function that caches the results of expensive function calls for optimization.
+
+// ✅ ADVANCED
+
+// 1. Implement a custom version of `Promise.all()` that resolves an array of promises and returns their results in order.
+// 2. Implement an `LRUCache` class that stores key-value pairs with a maximum limit, evicting the least recently used item when the limit is reached.
+// 3. Write a function that retries a failed API call a given number of times with a delay between attempts.
+// 4. Implement a simple mathematical expression evaluator that can compute results from a string expression (e.g., `"2 + 3 * 4"`).
+// 5. Write a function that flattens a deeply nested JavaScript object into a single-level object with dot-separated keys.
+// 6. Implement a custom `EventEmitter` class with `on`, `emit`, and `off` methods to manage event subscriptions.
+// 7. Implement a function currying utility that allows partial application of function arguments.
+// 8. Implement the Binary Search algorithm to efficiently find an element in a sorted array.
+// 9. Implement Kadane’s Algorithm to find the maximum subarray sum in a given array of integers.
+// 10. Implement custom versions of the built-in `bind()`, `call()`, and `apply()` methods for functions.
+
+// ✅ SCENARIO-BASED
+
+// 1. Write a function to find the top 10 largest numbers in a large array efficiently.
+// 2. Implement an auto-complete system that uses debouncing and caching to reduce API calls while typing.
+// 3. Write a recursive function that extracts all keys (including nested ones) from a deeply nested JSON object.
+// 4. Implement infinite scrolling logic that automatically loads more data when the user reaches the bottom of the page.
+// 5. Write a function that takes multiple API promises and returns the fastest (first resolved) response using `Promise.race()`.
+// 6. Implement lazy loading for images so that they load only when they appear in the user’s viewport.
+// 7. Write a scheduler function that executes a list of tasks at fixed time intervals.
+// 8. Write a function that checks whether a JavaScript object contains a circular reference.
+// 9. Explain how you would detect and fix memory leaks in a JavaScript application using browser profiling tools.
+// 10. Write a function to merge two sorted arrays into one sorted array efficiently.
+
+
+// ✅ BASIC
+
 // 1. Reverse a string without using .reverse()
 function reverseString(str) {
   let result = '';
@@ -72,7 +125,7 @@ function flattenArray(arr) {
 // 10. Check if a number is prime
 function isPrime(num) {
   if (num < 2) return false;
-  for (let i = 2; i * i <= num; i++) {
+  for (let i = 2; i * i < num; i++) {
     if (num % i === 0) return false;
   }
   return true;

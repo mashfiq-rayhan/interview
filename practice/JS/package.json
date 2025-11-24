@@ -4,14 +4,13 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "nodemon misc.js",
+    "dev": "node --watch practice.js",
     "test": "echo \"Error: no test specified\" && exit 1",
     "prettier": "prettier --write ."
   },
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "nodemon": "^3.1.10",
     "prettier": "^3.6.2"
   }
 }
