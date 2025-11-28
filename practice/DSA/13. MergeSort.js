@@ -1,5 +1,5 @@
 function merge(array1, array2) {
-  let combined = [];
+  const combined = [];
   let i = 0;
   let j = 0;
   while (i < array1.length && j < array2.length) {
@@ -28,9 +28,9 @@ console.log(merged);
 
 function mergeSort(array) {
   if (array.length === 1) return array;
-  let midIndex = Math.floor(array.length / 2);
-  let left = mergeSort(array.slice(0, midIndex));
-  let right = mergeSort(array.slice(midIndex));
+  const midIndex = Math.floor(array.length / 2);
+  const left = mergeSort(array.slice(0, midIndex));
+  const right = mergeSort(array.slice(midIndex));
   return merge(left, right);
 }
 

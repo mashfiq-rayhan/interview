@@ -144,6 +144,136 @@ class DoublyLinkedList {
       cursor = cursor.next;
     }
   }
+
+  isPalindrome() {
+    if (this.length <= 1) return true;
+
+    let forwardNode = this.head;
+    let backwardNode = this.tail;
+    for (let i = 0; i < Math.floor(this.length / 2); i++) {
+      if (forwardNode.value !== backwardNode.value) return false;
+      forwardNode = forwardNode.next;
+      backwardNode = backwardNode.prev;
+    }
+    return true;
+  }
+
+  reverse() {
+    let current = this.head;
+    let temp = null;
+
+    while (current !== null) {
+      temp = current.prev;
+      current.prev = current.next;
+      current.next = temp;
+      current = current.prev;
+    }
+
+    temp = this.head;
+    this.head = this.tail;
+    this.tail = temp;
+  }
+
+  partitionList(x) {
+    if (!this.head) return;
+
+    const dummy1 = new Node(0);
+    const dummy2 = new Node(0);
+    let prev1 = dummy1;
+    let prev2 = dummy2;
+    let current = this.head;
+
+    while (current !== null) {
+      const nextNode = current.next; // Store next
+      current.next = null; // Disconnect current
+      current.prev = null;
+
+      if (current.value < x) {
+        prev1.next = current;
+        current.prev = prev1;
+        prev1 = current;
+      } else {
+        prev2.next = current;
+        current.prev = prev2;
+        prev2 = current;
+      }
+
+      current = nextNode;
+    }
+
+    prev2.next = null;
+    prev1.next = dummy2.next;
+
+    if (dummy2.next) {
+      dummy2.next.prev = prev1;
+    }
+
+    this.head = dummy1.next;
+    if (this.head) {
+      this.head.prev = null;
+    }
+  }
+
+  reverseBetween(startIndex, endIndex) {
+    if (!this.head || startIndex === endIndex) {
+      return;
+    }
+
+    let dummy = { val: 0, next: this.head, prev: null };
+    this.head.prev = dummy;
+
+    let prev = dummy;
+    for (let i = 0; i < startIndex; i++) {
+      prev = prev.next;
+    }
+
+    let current = prev.next;
+
+    for (let i = 0; i < endIndex - startIndex; i++) {
+      let nodeToMove = current.next;
+
+      current.next = nodeToMove.next;
+      if (nodeToMove.next) {
+        nodeToMove.next.prev = current;
+      }
+
+      nodeToMove.next = prev.next;
+      prev.next.prev = nodeToMove;
+
+      prev.next = nodeToMove;
+      nodeToMove.prev = prev;
+    }
+
+    this.head = dummy.next;
+    this.head.prev = null;
+  }
+
+  swapPairs() {
+    const dummy = new Node(0);
+    dummy.next = this.head;
+    let prev = dummy;
+
+    while (this.head !== null && this.head.next !== null) {
+      const firstNode = this.head;
+      const secondNode = this.head.next;
+
+      prev.next = secondNode;
+      firstNode.next = secondNode.next;
+      secondNode.next = firstNode;
+
+      secondNode.prev = prev;
+      firstNode.prev = secondNode;
+      if (firstNode.next !== null) {
+        firstNode.next.prev = firstNode;
+      }
+
+      this.head = firstNode.next;
+      prev = firstNode;
+    }
+
+    this.head = dummy.next;
+    if (this.head) this.head.prev = null;
+  }
 }
 
 let myDoublyLinkedList = new DoublyLinkedList(7);

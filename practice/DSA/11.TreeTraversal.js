@@ -18,13 +18,11 @@ class BST {
     } else if (value > currentNode.value) {
       currentNode.right = this.#rInsert(value, currentNode.right);
     }
-
     return currentNode;
   }
 
   rInsert(value) {
-    if (this.root === null) this.root = new Node(value);
-    this.#rInsert(value);
+    this.root = this.#rInsert(value);
   }
 
   minValue(currentNode) {
@@ -62,9 +60,7 @@ class BST {
 
   rContains(value, currentNode = this.root) {
     if (currentNode === null) return false;
-
     if (value === currentNode.value) return true;
-
     if (value < currentNode.value) {
       return this.rContains(value, currentNode.left);
     } else {
@@ -73,12 +69,11 @@ class BST {
   }
 
   BFS() {
-    let currentNode = this.root;
+    if (this.root === null) return [];
+    let queue = [this.root];
     let results = [];
-    let queue = [];
-    queue.push(currentNode);
     while (queue.length) {
-      currentNode = queue.shift();
+      const currentNode = queue.shift();
       results.push(currentNode.value);
       if (currentNode.left) queue.push(currentNode.left);
       if (currentNode.right) queue.push(currentNode.right);
@@ -107,7 +102,7 @@ class BST {
     traverse(this.root);
     return results;
   }
-  
+
   DFSInOrder() {
     let results = [];
     function traverse(currentNode) {
