@@ -90,3 +90,140 @@ console.log(Number.MIN_SAFE_INTEGER);
 console.log(Number.POSITIVE_INFINITY);
 console.log(Number.NEGATIVE_INFINITY);
 console.log(Number.NaN);
+
+// Array Reference
+const cities = ['Khulna', 'Dhaka', 'Chittagong', 'Sylhet', 'Barishal', 'Rajshahi'];
+console.log(cities.length);
+console.log(cities.toString());
+console.log(cities[0]);
+console.log(cities.join(''));
+console.log(cities.pop());
+console.log(cities.push('Jessore'));
+console.log(cities.shift());
+console.log(cities.unshift('Bagerhat'));
+cities[0] = 'Khulna';
+console.log(cities);
+cities[cities.length] = 'Bagerhat';
+console.log(cities);
+console.log(Array.isArray(cities));
+const myGirls = ['Cecilie', 'Lone'];
+const myBoys = ['Emil', 'Tobias', 'Linus'];
+console.log(myGirls.concat(myBoys));
+let fruits = ['Banana', 'Orange', 'Apple', 'Mango'];
+console.log(fruits.copyWithin(2, 0)); // Copy to index 2, all elements from index 0:
+fruits = ['Banana', 'Orange', 'Apple', 'Mango', 'Kiwi'];
+console.log(fruits.copyWithin(2, 0, 2));
+let myArr = [
+  [1, 2],
+  [3, 4],
+  [5, 6]
+];
+console.log(myArr.flat());
+myArr = [1, 2, 3, 4, 5, 6];
+const newArr = myArr.flatMap((x) => [x, x * 10]);
+console.log(newArr);
+fruits = ['Banana', 'Orange', 'Apple', 'Mango', 'Banana', 'Orange', 'Apple', 'Mango'];
+fruits.splice(2, 0, 'Lemon', 'Kiwi');
+console.log(fruits);
+console.log(fruits.splice(2, 2, 'ad', 'da'));
+console.log(fruits);
+console.log(fruits.splice(2, 2));
+console.log(fruits.toSpliced(0, 1));
+console.log(fruits);
+console.log(fruits.slice(0, 2));
+
+console.log(fruits.indexOf('Banana'));
+console.log(fruits.lastIndexOf('Banana'));
+console.log(fruits.includes('Banana'));
+let numbers = [4, 9, 16, 25, 29];
+let first = numbers.find((value, index, array) => value > 18);
+console.log(first);
+let firstIndex = numbers.findIndex((value, index, array) => value > 18);
+console.log(firstIndex);
+let fndlst = fruits.findLast((value, index, array) => value === 'Banana');
+console.log(fndlst);
+let fndlstindx = fruits.findLastIndex((value, index, array) => value === 'Banana');
+console.log(fndlstindx);
+
+fruits = ['Banana', 'Orange', 'Apple', 'Mango'];
+console.log(fruits.sort());
+console.log(fruits.reverse());
+console.log(numbers.sort((a, b) => a - b));
+console.log(numbers.sort((a, b) => b - a));
+console.log(numbers.reverse());
+let months = ['Jan', 'Feb', 'Mar', 'Apr'];
+console.log(months.toSorted());
+console.log(months.toReversed());
+numbers = [45, 4, 9, 16, 25];
+txt = '';
+numbers.forEach((value, index, array) => {
+  txt += value + ' ';
+});
+console.log(txt);
+numbers.forEach((value, index, array) => {
+  value = value * 2;
+});
+console.log(numbers);
+let mapNums = numbers.map((value, index, array) => value * 2);
+console.log(mapNums);
+let flatNums = numbers.flatMap((value, index, array) => value * 2);
+console.log(flatNums);
+let filteredNums = numbers.filter((value, index, array) => value !== 10);
+console.log(filteredNums);
+let reduceTotal = numbers.reduce((total, value, index, array) => (total += value), 0);
+console.log(reduceTotal);
+let reduceRightTotal = numbers.reduceRight((total, value, index, array) => (total += value), 0);
+console.log(reduceRightTotal);
+let everyTest1 = numbers.every((value, index, array) => value > 18);
+console.log(everyTest1);
+let everyTest2 = numbers.every((value, index, array) => value > 1);
+console.log(everyTest2);
+let someTest1 = numbers.some((value, index, array) => value > 18);
+console.log(someTest1);
+let someTest2 = numbers.some((value, index, array) => value > 1);
+console.log(someTest2);
+let myNumbers = [1, 2, 3, 4];
+myArr = Array.from(myNumbers, (x) => x * 2);
+console.log(myArr);
+fruits = ['Banana', 'Orange', 'Apple', 'Mango'];
+let keys = fruits.keys();
+console.log(keys);
+for (let v of keys) {
+  console.log(v);
+}
+let keysFrom = Array.from(keys);
+console.log(keysFrom);
+let entriesFruits = fruits.entries();
+console.log(entriesFruits);
+let entriesFruitsArray = Array.from(entriesFruits);
+console.log(entriesFruitsArray);
+let obj = Object.fromEntries(entriesFruitsArray);
+console.log(obj);
+months = ['Januar', 'Februar', 'Mar', 'April'];
+console.log(months.with(2, 'March'));
+let arr1 = [1, 2, 3];
+let arr2 = [4, 5, 6];
+
+let arr3 = [...arr1, ...arr2];
+console.log(arr3);
+let q1 = ['Jan', 'Feb', 'Mar'];
+let q2 = ['Apr', 'May', 'Jun'];
+let q3 = ['Jul', 'Aug', 'Sep'];
+let q4 = ['Oct', 'Nov', 'Des'];
+
+let year = [...q1, ...q2, ...q3, ...q4];
+console.log(year);
+numbers = [23, 55, 21, 87, 56];
+let minValue = Math.min(...numbers);
+let maxValue = Math.max(...numbers);
+console.log(minValue);
+console.log(maxValue);
+console.log();
+console.log();
+console.log();
+console.log();
+console.log();
+console.log();
+console.log();
+console.log();
+console.log();

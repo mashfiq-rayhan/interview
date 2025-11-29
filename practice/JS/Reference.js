@@ -92,6 +92,338 @@ console.log(Number.POSITIVE_INFINITY);
 console.log(Number.NEGATIVE_INFINITY);
 console.log(Number.NaN);
 
+// Array Reference
+const cities = ['Khulna', 'Dhaka', 'Chittagong', 'Sylhet', 'Barishal', 'Rajshahi'];
+console.log(cities.length);
+console.log(cities.toString());
+console.log(cities[0]);
+console.log(cities.join(''));
+console.log(cities.pop());
+console.log(cities.push('Jessore'));
+console.log(cities.shift());
+console.log(cities.unshift('Bagerhat'));
+cities[0] = 'Khulna';
+console.log(cities);
+cities[cities.length] = 'Bagerhat';
+console.log(cities);
+console.log(Array.isArray(cities));
+const myGirls = ['Cecilie', 'Lone'];
+const myBoys = ['Emil', 'Tobias', 'Linus'];
+console.log(myGirls.concat(myBoys));
+fruits = ['Banana', 'Orange', 'Apple', 'Mango'];
+console.log(fruits.copyWithin(2, 0)); // Copy to index 2, all elements from index 0:
+fruits = ['Banana', 'Orange', 'Apple', 'Mango', 'Kiwi'];
+console.log(fruits.copyWithin(2, 0, 2));
+let myArr = [
+  [1, 2],
+  [3, 4],
+  [5, 6]
+];
+console.log(myArr.flat());
+myArr = [1, 2, 3, 4, 5, 6];
+const newArr = myArr.flatMap((x) => [x, x * 10]);
+console.log(newArr);
+fruits = ['Banana', 'Orange', 'Apple', 'Mango', 'Banana', 'Orange', 'Apple', 'Mango'];
+fruits.splice(2, 0, 'Lemon', 'Kiwi');
+console.log(fruits);
+console.log(fruits.splice(2, 2, 'ad', 'da'));
+console.log(fruits);
+console.log(fruits.splice(2, 2));
+console.log(fruits.toSpliced(0, 1));
+console.log(fruits);
+console.log(fruits.slice(0, 2));
+
+console.log(fruits.indexOf('Banana'));
+console.log(fruits.lastIndexOf('Banana'));
+console.log(fruits.includes('Banana'));
+let numbers = [4, 9, 16, 25, 29];
+let first = numbers.find((value, index, array) => value > 18);
+console.log(first);
+let firstIndex = numbers.findIndex((value, index, array) => value > 18);
+console.log(firstIndex);
+let fndlst = fruits.findLast((value, index, array) => value === 'Banana');
+console.log(fndlst);
+let fndlstindx = fruits.findLastIndex((value, index, array) => value === 'Banana');
+console.log(fndlstindx);
+
+fruits = ['Banana', 'Orange', 'Apple', 'Mango'];
+console.log(fruits.sort());
+console.log(fruits.reverse());
+console.log(numbers.sort((a, b) => a - b));
+console.log(numbers.sort((a, b) => b - a));
+console.log(numbers.reverse());
+let months = ['Jan', 'Feb', 'Mar', 'Apr'];
+console.log(months.toSorted());
+console.log(months.toReversed());
+numbers = [45, 4, 9, 16, 25];
+txt = '';
+numbers.forEach((value, index, array) => {
+  txt += value + ' ';
+});
+console.log(txt);
+numbers.forEach((value, index, array) => {
+  value = value * 2;
+});
+console.log(numbers);
+let mapNums = numbers.map((value, index, array) => value * 2);
+console.log(mapNums);
+let flatNums = numbers.flatMap((value, index, array) => value * 2);
+console.log(flatNums);
+let filteredNums = numbers.filter((value, index, array) => value !== 10);
+console.log(filteredNums);
+let reduceTotal = numbers.reduce((total, value, index, array) => (total += value), 0);
+console.log(reduceTotal);
+let reduceRightTotal = numbers.reduceRight((total, value, index, array) => (total += value), 0);
+console.log(reduceRightTotal);
+let everyTest1 = numbers.every((value, index, array) => value > 18);
+console.log(everyTest1);
+let everyTest2 = numbers.every((value, index, array) => value > 1);
+console.log(everyTest2);
+let someTest1 = numbers.some((value, index, array) => value > 18);
+console.log(someTest1);
+let someTest2 = numbers.some((value, index, array) => value > 1);
+console.log(someTest2);
+let myNumbers = [1, 2, 3, 4];
+myArr = Array.from(myNumbers, (x) => x * 2);
+console.log(myArr);
+fruits = ['Banana', 'Orange', 'Apple', 'Mango'];
+let keys = fruits.keys();
+console.log(keys);
+for (let v of keys) {
+  console.log(v);
+}
+let keysFrom = Array.from(keys);
+console.log(keysFrom);
+let entriesFruits = fruits.entries();
+console.log(entriesFruits);
+let entriesFruitsArray = Array.from(entriesFruits);
+console.log(entriesFruitsArray);
+let obj = Object.fromEntries(entriesFruitsArray);
+console.log(obj);
+months = ['Januar', 'Februar', 'Mar', 'April'];
+console.log(months.with(2, 'March'));
+let arr1 = [1, 2, 3];
+let arr2 = [4, 5, 6];
+
+let arr3 = [...arr1, ...arr2];
+console.log(arr3);
+let q1 = ['Jan', 'Feb', 'Mar'];
+let q2 = ['Apr', 'May', 'Jun'];
+let q3 = ['Jul', 'Aug', 'Sep'];
+let q4 = ['Oct', 'Nov', 'Des'];
+
+let year = [...q1, ...q2, ...q3, ...q4];
+console.log(year);
+numbers = [23, 55, 21, 87, 56];
+let minValue = Math.min(...numbers);
+let maxValue = Math.max(...numbers);
+console.log(minValue);
+console.log(maxValue);
+
+// Set Reference
+
+// Create a Set
+const letters = new Set(["a", "b", "c"]);
+console.log(letters);
+
+// add()
+letters.add("d");
+console.log(letters);
+
+// delete()
+letters.delete("b");
+console.log(letters);
+
+// has()
+console.log(letters.has("a")); // true
+console.log(letters.has("z")); // false
+
+// clear()
+// letters.clear();
+// console.log(letters); // Set(0) {}
+
+// size
+console.log(letters.size); // 3
+
+// forEach()
+letters.forEach(value => console.log(value));
+
+// values() / keys() (same for Set)
+for (let v of letters.values()) console.log(v);
+for (let k of letters.keys()) console.log(k);
+
+// entries()
+for (let entry of letters.entries()) console.log(entry);
+
+// Iteration
+for (let item of letters) console.log(item);
+
+
+// Map Reference
+
+// Create a Map
+const fruits = new Map([
+  ["apple", 10],
+  ["banana", 5],
+  ["mango", 7]
+]);
+console.log(fruits); // Initial map
+
+// set()
+fruits.set("orange", 12); // Adds or updates an entry
+console.log(fruits);
+
+// get()
+console.log(fruits.get("apple")); // Returns value of a key
+
+// delete()
+fruits.delete("banana"); // Removes a key/value pair
+console.log(fruits);
+
+// has()
+console.log(fruits.has("mango")); // true
+console.log(fruits.has("banana")); // false
+
+// size
+console.log(fruits.size); // Number of entries
+
+// clear()
+// fruits.clear();
+// console.log(fruits); // Map(0) {}
+
+// forEach()
+fruits.forEach((value, key) => console.log(key, value));
+
+// keys()
+for (let key of fruits.keys()) console.log(key);
+
+// values()
+for (let value of fruits.values()) console.log(value);
+
+// entries()
+for (let entry of fruits.entries()) console.log(entry);
+
+// Iteration
+for (let [key, value] of fruits) console.log(key, value);
+
+
+// Object Reference
+
+// 1. Object()
+const obj1 = new Object();
+obj1.name = "Boss";
+console.log(obj1);
+
+// 2. Object.assign()
+const target = { a: 1 };
+const source = { b: 2 };
+const returnedTarget = Object.assign(target, source);
+console.log(returnedTarget);
+
+// 3. Object.create()
+const proto = { greet: function() { return "Hello"; } };
+const obj2 = Object.create(proto);
+console.log(obj2.greet());
+
+// 4. Object.defineProperty()
+const obj3 = {};
+Object.defineProperty(obj3, 'prop', { value: 42, writable: true });
+console.log(obj3.prop);
+
+// 5. Object.defineProperties()
+const obj4 = {};
+Object.defineProperties(obj4, {
+  'prop1': { value: 1, writable: true },
+  'prop2': { value: 2, writable: true }
+});
+console.log(obj4);
+
+// 6. Object.entries()
+const obj5 = { a: 1, b: 2 };
+console.log(Object.entries(obj5));
+
+// 7. Object.freeze()
+const obj6 = { a: 1 };
+Object.freeze(obj6);
+obj6.a = 2;
+console.log(obj6.a); // still 1
+
+// 8. Object.fromEntries()
+const entries = [['a', 1], ['b', 2]];
+const obj7 = Object.fromEntries(entries);
+console.log(obj7);
+
+// 9. Object.getOwnPropertyDescriptor()
+const obj8 = { a: 1 };
+console.log(Object.getOwnPropertyDescriptor(obj8, 'a'));
+
+// 10. Object.getOwnPropertyDescriptors()
+console.log(Object.getOwnPropertyDescriptors(obj8));
+
+// 11. Object.getOwnPropertyNames()
+console.log(Object.getOwnPropertyNames(obj8));
+
+// 12. Object.getOwnPropertySymbols()
+const sym = Symbol('foo');
+const obj9 = {};
+obj9[sym] = 1;
+console.log(Object.getOwnPropertySymbols(obj9));
+
+// 13. Object.getPrototypeOf()
+console.log(Object.getPrototypeOf(obj8));
+
+// 14. Object.is()
+console.log(Object.is('foo', 'foo')); // true
+console.log(Object.is([], [])); // false
+
+// 15. Object.isExtensible()
+const obj10 = {};
+console.log(Object.isExtensible(obj10)); // true
+
+// 16. Object.isFrozen()
+console.log(Object.isFrozen(obj6)); // true
+
+// 17. Object.isSealed()
+const obj11 = { a: 1 };
+Object.seal(obj11);
+console.log(Object.isSealed(obj11)); // true
+
+// 18. Object.keys()
+console.log(Object.keys(obj5)); // ['a','b']
+
+// 19. Object.preventExtensions()
+const obj12 = {};
+Object.preventExtensions(obj12);
+console.log(Object.isExtensible(obj12)); // false
+
+// 20. Object.seal()
+const obj13 = { a: 1 };
+Object.seal(obj13);
+obj13.a = 2; // allowed
+// obj13.b = 3; // not allowed
+console.log(obj13);
+
+// 21. Object.values()
+console.log(Object.values(obj5)); // [1,2]
+
+// 22. Object.prototype.hasOwnProperty()
+console.log(obj5.hasOwnProperty('a')); // true
+console.log(obj5.hasOwnProperty('z')); // false
+
+// 23. Object.prototype.isPrototypeOf()
+console.log(proto.isPrototypeOf(obj2)); // true
+
+// 24. Object.prototype.propertyIsEnumerable()
+console.log(obj5.propertyIsEnumerable('a')); // true
+
+// 25. Object.prototype.toLocaleString()
+console.log(obj5.toLocaleString()); // 1,2
+
+// 26. Object.prototype.toString()
+console.log(obj5.toString()); // [object Object]
+
+// 27. Object.prototype.valueOf()
+console.log(obj5.valueOf()); // {a:1,b:2}
 
 // Date Reference 
 
@@ -250,322 +582,3 @@ console.log(new Date().toUTCString()); // Converts to UTC string format
 
 // 47. valueOf()
 console.log(new Date().valueOf()); // Returns timestamp (primitive value)
-
-// Array Reference
-
-// 1. Array()
-console.log(new Array(1, 2, 3)); // Creates a new array
-
-// 2. Array.from()
-console.log(Array.from("Boss")); // Converts iterable/string to array
-
-// 3. Array.isArray()
-console.log(Array.isArray([1, 2, 3])); // Checks if value is an array
-
-// 4. Array.of()
-console.log(Array.of(1, 2, 3)); // Creates array from arguments
-
-// 5. concat()
-console.log([1, 2].concat([3, 4])); // Joins arrays
-
-// 6. copyWithin()
-console.log([1, 2, 3, 4].copyWithin(1, 2)); // Copies array elements
-
-// 7. entries()
-console.log([...['a', 'b'].entries()]); // Returns key/value pairs
-
-// 8. every()
-console.log([2, 4, 6].every(n => n % 2 === 0)); // Checks if all elements pass a condition
-
-// 9. fill()
-console.log([1, 2, 3].fill(0)); // Fills elements with a static value
-
-// 10. filter()
-console.log([1, 2, 3, 4].filter(n => n > 2)); // Filters array elements
-
-// 11. find()
-console.log([1, 2, 3].find(n => n > 1)); // Finds first matching element
-
-// 12. findIndex()
-console.log([1, 2, 3].findIndex(n => n > 1)); // Finds index of first match
-
-// 13. findLast()
-console.log([1, 2, 3].findLast(n => n > 1)); // Finds last matching element
-
-// 14. findLastIndex()
-console.log([1, 2, 3].findLastIndex(n => n > 1)); // Finds index of last match
-
-// 15. flat()
-console.log([1, [2, [3]]].flat(2)); // Flattens nested array
-
-// 16. flatMap()
-console.log([1, 2, 3].flatMap(n => [n, n * 2])); // Maps + flattens array
-
-// 17. forEach()
-[1, 2, 3].forEach(n => console.log(n)); // Iterates over array
-
-// 18. includes()
-console.log([1, 2, 3].includes(2)); // Checks if array includes a value
-
-// 19. indexOf()
-console.log([1, 2, 3].indexOf(2)); // Returns index of first match
-
-// 20. join()
-console.log(["a", "b", "c"].join("-")); // Joins elements into string
-
-// 21. keys()
-console.log([...['a', 'b'].keys()]); // Returns array indices
-
-// 22. lastIndexOf()
-console.log([1, 2, 3, 2].lastIndexOf(2)); // Last index of value
-
-// 23. map()
-console.log([1, 2, 3].map(n => n * 2)); // Maps each element
-
-// 24. pop()
-const arr1 = [1, 2, 3]; console.log(arr1.pop()); // Removes last element
-
-// 25. push()
-const arr2 = [1, 2]; console.log(arr2.push(3)); // Adds to end
-
-// 26. reduce()
-console.log([1, 2, 3].reduce((a, b) => a + b)); // Reduces array to value
-
-// 27. reduceRight()
-console.log([1, 2, 3].reduceRight((a, b) => a + b)); // Reduces from right
-
-// 28. reverse()
-console.log([1, 2, 3].reverse()); // Reverses array order
-
-// 29. shift()
-const arr3 = [1, 2, 3]; console.log(arr3.shift()); // Removes first element
-
-// 30. slice()
-console.log([1, 2, 3, 4].slice(1, 3)); // Slices array
-
-// 31. some()
-console.log([1, 2, 3].some(n => n > 2)); // Checks if any element passes test
-
-// 32. sort()
-console.log([3, 1, 2].sort()); // Sorts array
-
-// 33. splice()
-const arr4 = [1, 2, 3]; console.log(arr4.splice(1, 1)); // Adds/removes elements
-
-// 34. toLocaleString()
-console.log([1000, 2000].toLocaleString()); // Formats elements by locale
-
-// 35. toString()
-console.log([1, 2, 3].toString()); // Converts array to string
-
-// 36. unshift()
-const arr5 = [2, 3]; console.log(arr5.unshift(1)); // Adds to start
-
-// 37. values()
-console.log([...['a', 'b'].values()]); // Returns array values
-
-
-// Set Reference
-
-// Create a Set
-const letters = new Set(["a", "b", "c"]);
-console.log(letters);
-
-// add()
-letters.add("d");
-console.log(letters);
-
-// delete()
-letters.delete("b");
-console.log(letters);
-
-// has()
-console.log(letters.has("a")); // true
-console.log(letters.has("z")); // false
-
-// clear()
-// letters.clear();
-// console.log(letters); // Set(0) {}
-
-// size
-console.log(letters.size); // 3
-
-// forEach()
-letters.forEach(value => console.log(value));
-
-// values() / keys() (same for Set)
-for (let v of letters.values()) console.log(v);
-for (let k of letters.keys()) console.log(k);
-
-// entries()
-for (let entry of letters.entries()) console.log(entry);
-
-// Iteration
-for (let item of letters) console.log(item);
-
-
-// Map Reference
-
-// Create a Map
-const fruits = new Map([
-  ["apple", 10],
-  ["banana", 5],
-  ["mango", 7]
-]);
-console.log(fruits); // Initial map
-
-// set()
-fruits.set("orange", 12); // Adds or updates an entry
-console.log(fruits);
-
-// get()
-console.log(fruits.get("apple")); // Returns value of a key
-
-// delete()
-fruits.delete("banana"); // Removes a key/value pair
-console.log(fruits);
-
-// has()
-console.log(fruits.has("mango")); // true
-console.log(fruits.has("banana")); // false
-
-// size
-console.log(fruits.size); // Number of entries
-
-// clear()
-// fruits.clear();
-// console.log(fruits); // Map(0) {}
-
-// forEach()
-fruits.forEach((value, key) => console.log(key, value));
-
-// keys()
-for (let key of fruits.keys()) console.log(key);
-
-// values()
-for (let value of fruits.values()) console.log(value);
-
-// entries()
-for (let entry of fruits.entries()) console.log(entry);
-
-// Iteration
-for (let [key, value] of fruits) console.log(key, value);
-
-
-// Full JavaScript Object Reference Practice
-
-// 1. Object()
-const obj1 = new Object();
-obj1.name = "Boss";
-console.log(obj1);
-
-// 2. Object.assign()
-const target = { a: 1 };
-const source = { b: 2 };
-const returnedTarget = Object.assign(target, source);
-console.log(returnedTarget);
-
-// 3. Object.create()
-const proto = { greet: function() { return "Hello"; } };
-const obj2 = Object.create(proto);
-console.log(obj2.greet());
-
-// 4. Object.defineProperty()
-const obj3 = {};
-Object.defineProperty(obj3, 'prop', { value: 42, writable: true });
-console.log(obj3.prop);
-
-// 5. Object.defineProperties()
-const obj4 = {};
-Object.defineProperties(obj4, {
-  'prop1': { value: 1, writable: true },
-  'prop2': { value: 2, writable: true }
-});
-console.log(obj4);
-
-// 6. Object.entries()
-const obj5 = { a: 1, b: 2 };
-console.log(Object.entries(obj5));
-
-// 7. Object.freeze()
-const obj6 = { a: 1 };
-Object.freeze(obj6);
-obj6.a = 2;
-console.log(obj6.a); // still 1
-
-// 8. Object.fromEntries()
-const entries = [['a', 1], ['b', 2]];
-const obj7 = Object.fromEntries(entries);
-console.log(obj7);
-
-// 9. Object.getOwnPropertyDescriptor()
-const obj8 = { a: 1 };
-console.log(Object.getOwnPropertyDescriptor(obj8, 'a'));
-
-// 10. Object.getOwnPropertyDescriptors()
-console.log(Object.getOwnPropertyDescriptors(obj8));
-
-// 11. Object.getOwnPropertyNames()
-console.log(Object.getOwnPropertyNames(obj8));
-
-// 12. Object.getOwnPropertySymbols()
-const sym = Symbol('foo');
-const obj9 = {};
-obj9[sym] = 1;
-console.log(Object.getOwnPropertySymbols(obj9));
-
-// 13. Object.getPrototypeOf()
-console.log(Object.getPrototypeOf(obj8));
-
-// 14. Object.is()
-console.log(Object.is('foo', 'foo')); // true
-console.log(Object.is([], [])); // false
-
-// 15. Object.isExtensible()
-const obj10 = {};
-console.log(Object.isExtensible(obj10)); // true
-
-// 16. Object.isFrozen()
-console.log(Object.isFrozen(obj6)); // true
-
-// 17. Object.isSealed()
-const obj11 = { a: 1 };
-Object.seal(obj11);
-console.log(Object.isSealed(obj11)); // true
-
-// 18. Object.keys()
-console.log(Object.keys(obj5)); // ['a','b']
-
-// 19. Object.preventExtensions()
-const obj12 = {};
-Object.preventExtensions(obj12);
-console.log(Object.isExtensible(obj12)); // false
-
-// 20. Object.seal()
-const obj13 = { a: 1 };
-Object.seal(obj13);
-obj13.a = 2; // allowed
-// obj13.b = 3; // not allowed
-console.log(obj13);
-
-// 21. Object.values()
-console.log(Object.values(obj5)); // [1,2]
-
-// 22. Object.prototype.hasOwnProperty()
-console.log(obj5.hasOwnProperty('a')); // true
-console.log(obj5.hasOwnProperty('z')); // false
-
-// 23. Object.prototype.isPrototypeOf()
-console.log(proto.isPrototypeOf(obj2)); // true
-
-// 24. Object.prototype.propertyIsEnumerable()
-console.log(obj5.propertyIsEnumerable('a')); // true
-
-// 25. Object.prototype.toLocaleString()
-console.log(obj5.toLocaleString()); // 1,2
-
-// 26. Object.prototype.toString()
-console.log(obj5.toString()); // [object Object]
-
-// 27. Object.prototype.valueOf()
-console.log(obj5.valueOf()); // {a:1,b:2}
