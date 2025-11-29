@@ -221,91 +221,80 @@ console.log(minValue);
 console.log(maxValue);
 
 // Set Reference
-
 // Create a Set
-const letters = new Set(["a", "b", "c"]);
-console.log(letters);
+let letters = new Set(['a', 'b', 'c']);
+// Create a Set
+letters = new Set();
+// Add Values to the Set
+letters.add('a');
+letters.add('b');
+letters.add('c');
 
-// add()
-letters.add("d");
-console.log(letters);
+console.log(letters.size);
+console.log(letters.has('a'));
+console.log(letters.has('d'));
+let vals = letters.values();
+console.log(vals);
+keys = letters.keys();
+console.log(keys);
+let entriesSet = letters.entries();
+console.log(entriesSet);
+let A = new Set(['a', 'b', 'c']);
+let B = new Set(['b', 'c', 'd']);
+let C = A.union(B);
+console.log('union: ', C);
+C = A.difference(B);
+console.log('difference: ', C);
+C = A.intersection(B);
+console.log('intersection: ', C);
+C = A.isDisjointFrom(B);
+console.log('isDisjointFrom: ', C);
+C = A.isSubsetOf(B);
+console.log('isSubsetOf: ', C);
+C = A.isSupersetOf(B);
+console.log('isSupersetOf: ', C);
+C = A.symmetricDifference(B);
+console.log('symmetricDifference: ', C);
 
-// delete()
-letters.delete("b");
-console.log(letters);
+// WeakSet
+let mySet = new WeakSet();
+let myObj = { fname: 'John', lname: 'Doe' };
+mySet.add(myObj);
+let isIn = mySet.has(myObj);
+console.log(isIn);
 
-// has()
-console.log(letters.has("a")); // true
-console.log(letters.has("z")); // false
-
-// clear()
-// letters.clear();
-// console.log(letters); // Set(0) {}
-
-// size
-console.log(letters.size); // 3
-
-// forEach()
-letters.forEach(value => console.log(value));
-
-// values() / keys() (same for Set)
-for (let v of letters.values()) console.log(v);
-for (let k of letters.keys()) console.log(k);
-
-// entries()
-for (let entry of letters.entries()) console.log(entry);
-
-// Iteration
-for (let item of letters) console.log(item);
-
+mySet = new WeakSet();
+myObj = { fname: 'John', lname: 'Doe' };
+mySet.add(myObj);
+mySet.delete(myObj);
+isIn = mySet.has(myObj);
+console.log(isIn);
 
 // Map Reference
-
-// Create a Map
-const fruits = new Map([
-  ["apple", 10],
-  ["banana", 5],
-  ["mango", 7]
+fruits = new Map([
+  ['apples', 500],
+  ['bananas', 300],
+  ['oranges', 200]
 ]);
-console.log(fruits); // Initial map
-
-// set()
-fruits.set("orange", 12); // Adds or updates an entry
+fruits.set('Mangoes', 500);
 console.log(fruits);
-
-// get()
-console.log(fruits.get("apple")); // Returns value of a key
-
-// delete()
-fruits.delete("banana"); // Removes a key/value pair
+console.log(fruits.get('bananas'));
+console.log(fruits.size);
+console.log(fruits.delete('Mangoes'));
 console.log(fruits);
-
-// has()
-console.log(fruits.has("mango")); // true
-console.log(fruits.has("banana")); // false
-
-// size
-console.log(fruits.size); // Number of entries
-
-// clear()
-// fruits.clear();
-// console.log(fruits); // Map(0) {}
-
-// forEach()
-fruits.forEach((value, key) => console.log(key, value));
-
-// keys()
-for (let key of fruits.keys()) console.log(key);
-
-// values()
-for (let value of fruits.values()) console.log(value);
-
-// entries()
-for (let entry of fruits.entries()) console.log(entry);
-
-// Iteration
-for (let [key, value] of fruits) console.log(key, value);
-
+fruits.set('Mangoes', 500);
+console.log(fruits);
+console.log(fruits.has('Mangoes'));
+fruits.forEach((value, key) => {
+  console.log(key + ' = ' + value);
+});
+console.log(fruits.entries());
+for (const [key, value] of fruits.entries()) {
+  console.log(key + ' = ' + value);
+}
+console.log(fruits.keys());
+console.log(fruits.values());
+console.log();
 
 // Object Reference
 

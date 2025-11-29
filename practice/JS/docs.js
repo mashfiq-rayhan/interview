@@ -218,12 +218,79 @@ let minValue = Math.min(...numbers);
 let maxValue = Math.max(...numbers);
 console.log(minValue);
 console.log(maxValue);
-console.log();
-console.log();
-console.log();
-console.log();
-console.log();
-console.log();
-console.log();
-console.log();
+
+// Set Reference
+// Create a Set
+let letters = new Set(['a', 'b', 'c']);
+// Create a Set
+letters = new Set();
+// Add Values to the Set
+letters.add('a');
+letters.add('b');
+letters.add('c');
+
+console.log(letters.size);
+console.log(letters.has('a'));
+console.log(letters.has('d'));
+let vals = letters.values();
+console.log(vals);
+keys = letters.keys();
+console.log(keys);
+let entriesSet = letters.entries();
+console.log(entriesSet);
+let A = new Set(['a', 'b', 'c']);
+let B = new Set(['b', 'c', 'd']);
+let C = A.union(B);
+console.log('union: ', C);
+C = A.difference(B);
+console.log('difference: ', C);
+C = A.intersection(B);
+console.log('intersection: ', C);
+C = A.isDisjointFrom(B);
+console.log('isDisjointFrom: ', C);
+C = A.isSubsetOf(B);
+console.log('isSubsetOf: ', C);
+C = A.isSupersetOf(B);
+console.log('isSupersetOf: ', C);
+C = A.symmetricDifference(B);
+console.log('symmetricDifference: ', C);
+
+// WeakSet
+let mySet = new WeakSet();
+let myObj = { fname: 'John', lname: 'Doe' };
+mySet.add(myObj);
+let isIn = mySet.has(myObj);
+console.log(isIn);
+
+mySet = new WeakSet();
+myObj = { fname: 'John', lname: 'Doe' };
+mySet.add(myObj);
+mySet.delete(myObj);
+isIn = mySet.has(myObj);
+console.log(isIn);
+
+// Map Reference
+fruits = new Map([
+  ['apples', 500],
+  ['bananas', 300],
+  ['oranges', 200]
+]);
+fruits.set('Mangoes', 500);
+console.log(fruits);
+console.log(fruits.get('bananas'));
+console.log(fruits.size);
+console.log(fruits.delete('Mangoes'));
+console.log(fruits);
+fruits.set('Mangoes', 500);
+console.log(fruits);
+console.log(fruits.has('Mangoes'));
+fruits.forEach((value, key) => {
+  console.log(key + ' = ' + value);
+});
+console.log(fruits.entries());
+for (const [key, value] of fruits.entries()) {
+  console.log(key + ' = ' + value);
+}
+console.log(fruits.keys());
+console.log(fruits.values());
 console.log();
