@@ -1,118 +1,51 @@
 // String Reference
-
-// 1. at()
-console.log("hello".at(1)); // Returns an indexed character from a string
-
-// 2. charAt()
-console.log("hello".charAt(1)); // Returns the character at a specified index
-
-// 3. charCodeAt()
-console.log("A".charCodeAt(0)); // Returns the Unicode of the character at a specified index
-
-// 4. codePointAt()
-console.log("💻".codePointAt(0)); // Returns the Unicode code point at the given index
-
-// 5. concat()
-console.log("Hello".concat(" ", "Boss")); // Joins two or more strings
-
-// 6. constructor
-console.log("test".constructor); // Returns the string's constructor function
-
-// 7. endsWith()
-console.log("JavaScript".endsWith("Script")); // Checks if the string ends with a specified value
-
-// 8. fromCharCode()
-console.log(String.fromCharCode(65, 66, 67)); // Converts Unicode values to characters
-
-// 9. includes()
-console.log("Navigator".includes("gator")); // Checks if the string contains a specified value
-
-// 10. indexOf()
-console.log("banana".indexOf("a")); // Returns index of first occurrence
-
-// 11. isWellFormed()
-console.log("test".isWellFormed()); // Checks if a string is well-formed
-
-// 12. lastIndexOf()
-console.log("banana".lastIndexOf("a")); // Returns index of last occurrence
-
-// 13. length
-console.log("Boss".length); // Returns string length
-
-// 14. localeCompare()
-console.log("a".localeCompare("b")); // Compares strings based on locale
-
-// 15. match()
-console.log("abc123".match(/\d+/)); // Returns matches for regex or string
-
-// 16. matchAll()
-console.log([..."a1b2c3".matchAll(/\d/g)]); // Returns all regex matches with details
-
-// 17. padEnd()
-console.log("Boss".padEnd(10, "*")); // Pads string at the end
-
-// 18. padStart()
-console.log("Boss".padStart(10, "*")); // Pads string at the beginning
-
-// 19. prototype
-console.log(String.prototype); // Allows adding properties/methods to String objects
-
-// 20. repeat()
-console.log("ha".repeat(3)); // Repeats string specified number of times
-
-// 21. replace()
-console.log("banana".replace("a", "@")); // Replaces the first match
-
-// 22. replaceAll()
-console.log("banana".replaceAll("a", "@")); // Replaces all matches
-
-// 23. search()
-console.log("abc123".search(/\d/)); // Searches for match, returns index
-
-// 24. slice()
-console.log("JavaScript".slice(0, 4)); // Extracts part of a string
-
-// 25. split()
-console.log("a,b,c".split(",")); // Splits string into array
-
-// 26. startsWith()
-console.log("Navigator".startsWith("Nav")); // Checks if string begins with specified value
-
-// 27. substr() (Deprecated)
-console.log("JavaScript".substr(0, 4)); // Deprecated: extracts part of string
-
-// 28. substring()
-console.log("JavaScript".substring(0, 4)); // Extracts characters between indices
-
-// 29. toLocaleLowerCase()
-console.log("BOSS".toLocaleLowerCase()); // Converts to lowercase using locale
-
-// 30. toLocaleUpperCase()
-console.log("boss".toLocaleUpperCase()); // Converts to uppercase using locale
-
-// 31. toLowerCase()
-console.log("BOSS".toLowerCase()); // Converts string to lowercase
-
-// 32. toString()
-console.log((123).toString()); // Converts value to string
-
-// 33. toUpperCase()
-console.log("boss".toUpperCase()); // Converts string to uppercase
-
-// 34. toWellFormed()
-console.log("test".toWellFormed()); // Fixes malformed Unicode sequences
-
-// 35. trim()
-console.log("   Boss   ".trim()); // Removes whitespace from both sides
-
-// 36. trimEnd()
-console.log("   Boss   ".trimEnd()); // Removes whitespace from end
-
-// 37. trimStart()
-console.log("   Boss   ".trimStart()); // Removes whitespace from start
-
-// 38. valueOf()
-console.log(new String("Boss").valueOf()); // Returns the primitive value
+let alphabet = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+console.log(alphabet.length);
+console.log(alphabet[0]);
+console.log(alphabet.at(0));
+console.log(alphabet.charAt(0));
+console.log(alphabet.charCodeAt(0));
+console.log(String.fromCharCode(65));
+console.log(alphabet.codePointAt(0));
+console.log(String.fromCodePoint(65));
+console.log(alphabet.concat(' ', alphabet));
+console.log(alphabet.slice(0, 10));
+console.log(alphabet.substring(0, 10));
+console.log(alphabet.toLowerCase());
+console.log(alphabet.toUpperCase());
+console.log(alphabet.toLocaleLowerCase());
+console.log(alphabet.toLocaleUpperCase());
+console.log(alphabet.isWellFormed());
+console.log(alphabet.toWellFormed());
+console.log(alphabet.trim());
+console.log(alphabet.trimStart());
+console.log(alphabet.trimEnd());
+console.log(alphabet.padStart(30, '-'));
+console.log(alphabet.padEnd(30, '-'));
+console.log(alphabet.repeat(2));
+console.log(alphabet.replace('ABC', 'abc'));
+console.log(alphabet.replace(/ABC/i, 'abc'));
+console.log(alphabet.replace(/ABC/g, 'abc'));
+console.log(alphabet.replace(/ABC/gi, 'abc'));
+console.log(alphabet.replaceAll(/ABC/g, 'abc'));
+console.log(alphabet.replaceAll(/ABC/gi, 'abc'));
+console.log(alphabet.split(''));
+let txt = "Please locate where 'locate' occurs!";
+console.log(txt.indexOf('locate'));
+console.log(txt.lastIndexOf('locate'));
+console.log(txt.search('where'));
+console.log(txt.search(/occurs/));
+let txt1 = 'The rain in SPAIN stays mainly in the plain';
+console.log(txt1.match('ain'));
+console.log(txt1.match(/ain/));
+console.log(txt1.match(/ain/g));
+console.log(txt1.match(/ain/gi));
+console.log(txt1.matchAll('ain'));
+console.log(txt1.matchAll(/ain/g));
+console.log(txt1.matchAll(/ain/gi));
+console.log(txt1.includes('ain'));
+console.log(txt1.startsWith('The'));
+console.log(txt1.endsWith('plain'));
 
 
 // Number Reference
