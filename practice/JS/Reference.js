@@ -49,66 +49,48 @@ console.log(txt1.endsWith('plain'));
 
 
 // Number Reference
-
-// 1. Number.EPSILON
-console.log(Number.EPSILON); // Smallest difference between two representable numbers
-
-// 2. Number.MAX_VALUE
-console.log(Number.MAX_VALUE); // Largest possible number in JS
-
-// 3. Number.MIN_VALUE
-console.log(Number.MIN_VALUE); // Smallest positive number in JS
-
-// 4. Number.MAX_SAFE_INTEGER
-console.log(Number.MAX_SAFE_INTEGER); // Largest safe integer
-
-// 5. Number.MIN_SAFE_INTEGER
-console.log(Number.MIN_SAFE_INTEGER); // Smallest safe integer
-
-// 6. Number.NaN
-console.log(Number.NaN); // Not-a-Number value
-
-// 7. Number.NEGATIVE_INFINITY
-console.log(Number.NEGATIVE_INFINITY); // Negative infinity
-
-// 8. Number.POSITIVE_INFINITY
-console.log(Number.POSITIVE_INFINITY); // Positive infinity
-
-// 9. Number.isFinite()
-console.log(Number.isFinite(100)); // Checks if value is finite
-
-// 10. Number.isInteger()
-console.log(Number.isInteger(10)); // Checks if value is an integer
-
-// 11. Number.isNaN()
-console.log(Number.isNaN(NaN)); // Checks if value is NaN
-
-// 12. Number.isSafeInteger()
-console.log(Number.isSafeInteger(9007199254740991)); // Checks for safe integer
-
-// 13. Number.parseFloat()
-console.log(Number.parseFloat("12.34")); // Converts string to float
-
-// 14. Number.parseInt()
-console.log(Number.parseInt("12.34")); // Converts string to integer
-
-// 15. Number.prototype.toExponential()
-console.log((123456).toExponential(2)); // Converts to exponential notation
-
-// 16. Number.prototype.toFixed()
-console.log((12.3456).toFixed(2)); // Formats with fixed decimal places
-
-// 17. Number.prototype.toLocaleString()
-console.log((1000000).toLocaleString()); // Formats number based on locale
-
-// 18. Number.prototype.toPrecision()
-console.log((12.3456).toPrecision(4)); // Formats number with total digits
-
-// 19. Number.prototype.toString()
-console.log((255).toString(16)); // Converts number to string (hex)
-
-// 20. Number.prototype.valueOf()
-console.log((123).valueOf()); // Returns primitive number value
+let x = 12;
+console.log(x.toString());
+console.log(x.toExponential(2));
+console.log(x.toFixed(2));
+console.log(x.toPrecision(3));
+console.log(Number(true));
+console.log(Number(false));
+console.log(Number('10'));
+console.log(Number('  10'));
+console.log(Number('10  '));
+console.log(Number('  10  '));
+console.log(Number('10.33'));
+console.log(Number('10,33'));
+console.log(Number('10 33'));
+console.log(Number('John'));
+console.log(Number(new Date('2025-11-29')));
+console.log(parseInt('-10'));
+console.log(parseInt('-10.33'));
+console.log(parseInt('10'));
+console.log(parseInt('10.33'));
+console.log(parseInt('10 20 30'));
+console.log(parseInt('10 years'));
+console.log(parseInt('years 10'));
+console.log(parseFloat('10'));
+console.log(parseFloat('10.33'));
+console.log(parseFloat('10 20 30'));
+console.log(parseFloat('10 years'));
+console.log(parseFloat('years 10'));
+console.log(Number.isInteger(10));
+console.log(Number.isNaN(1));
+console.log(Number.isFinite(10));
+console.log(Number.isSafeInteger(10));
+console.log(Number.parseFloat(10));
+console.log(Number.parseInt(10));
+console.log(Number.EPSILON);
+console.log(Number.MAX_VALUE);
+console.log(Number.MIN_VALUE);
+console.log(Number.MAX_SAFE_INTEGER);
+console.log(Number.MIN_SAFE_INTEGER);
+console.log(Number.POSITIVE_INFINITY);
+console.log(Number.NEGATIVE_INFINITY);
+console.log(Number.NaN);
 
 
 // Date Reference 
