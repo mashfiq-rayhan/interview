@@ -31,7 +31,7 @@ console.log(facR8);
 
 function FactorialIterative(n) {
   let result = 1;
-  for (i = 2; i <= n; i++) result *= i;
+  for (let i = 2; i <= n; i++) result *= i;
   return result;
 }
 
