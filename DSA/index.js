@@ -127,6 +127,7 @@ class LinkedList {
       prev = temp;
       temp = next;
     }
+    return this;
   }
 }
 
@@ -166,7 +167,7 @@ class DoublyLinkedList {
 
   pop() {
     if (this.length === 0) return undefined;
-    const temp = this.tail;
+    let temp = this.tail;
     if (this.length === 1) {
       this.head = null;
       this.tail = null;
@@ -245,7 +246,7 @@ class DoublyLinkedList {
     newNode.next = after;
     after.prev = newNode;
     this.length++;
-    return true;
+    return this;
   }
 
   remove(index) {
@@ -261,3 +262,244 @@ class DoublyLinkedList {
     return temp;
   }
 }
+
+//////////////////////////////////////////
+/// STACK
+//////////////////////////////////////////
+
+class SNode {
+  constructor(value) {
+    this.value = value;
+    this.next = null;
+  }
+}
+
+class Stack {
+  constructor(value) {
+    const newNode = new SNode(value);
+    this.top = newNode;
+    this.length = 1;
+  }
+
+  push(value) {
+    const newNode = new SNode(value);
+    if (this.length === 0) {
+      this.top = newNode;
+    } else {
+      newNode.next = this.top;
+      this.top = newNode;
+    }
+    this.length++;
+    return this;
+  }
+
+  pop() {
+    if (this.length === 0) return undefined;
+    const temp = this.top;
+    this.top = this.top.next;
+    temp.next = null;
+    this.length--;
+    return temp;
+  }
+}
+
+//////////////////////////////////////////
+/// QUEUE
+//////////////////////////////////////////
+
+class QNode {
+  constructor(value) {
+    this.value = value;
+    this.next = null;
+  }
+}
+
+class Queue {
+  constructor(value) {
+    const newNode = new QNode(value);
+    this.first = newNode;
+    this.last = newNode;
+    this.length = 1;
+  }
+
+  enqueue(value) {
+    const newNode = new QNode(value);
+    if (this.length === 0) {
+      this.first = newNode;
+      this.last = newNode;
+    } else {
+      this.last.next = newNode;
+      this.last = newNode;
+    }
+    this.length++;
+    return this;
+  }
+
+  dequeue() {
+    if (this.length === 0) return undefined;
+    const temp = this.first;
+    if (this.length === 1) {
+      this.first = null;
+      this.last = null;
+    } else {
+      this.first = this.first.next;
+      temp.next = null;
+    }
+    this.length--;
+    return temp;
+  }
+}
+
+//////////////////////////////////////////
+/// TREE
+//////////////////////////////////////////
+
+class Leaf {
+  constructor(value) {
+    this.value = value;
+    this.left = null;
+    this.right = null;
+  }
+}
+
+class BST {
+  constructor() {
+    this.root = null;
+  }
+
+  insert(value) {
+    const newLeaf = new Leaf(value);
+    if (this.root === null) {
+      this.root = newLeaf;
+      return this;
+    }
+    let temp = this.root;
+    while (temp) {
+      if (newLeaf.value === temp.value) return undefined;
+      if (newLeaf.value < temp.value) {
+        if (temp.left === null) {
+          temp.left = newLeaf;
+          return this;
+        }
+        temp = temp.left;
+      } else {
+        if (temp.right === null) {
+          temp.right = newLeaf;
+          return this;
+        }
+        temp = temp.right;
+      }
+    }
+  }
+
+  contains(value) {
+    if (this.root === null) return false;
+    let temp = this.root;
+    while (temp) {
+      if (value < temp.value) {
+        temp = temp.left;
+      } else if (value > temp.value) {
+        temp = temp.right;
+      } else {
+        return true;
+      }
+    }
+    return false;
+  }
+}
+
+//////////////////////////////////////////
+/// HASH TABLES
+//////////////////////////////////////////
+class HashTable {
+  constructor(size = 7) {
+    this.dataMap = new Array(size);
+  }
+
+  #hash(key) {
+    let hash = 0;
+    for (let i = 0; i < key.length; i++) {
+      hash = (hash + key.charCodeAt(i) * 23) % this.dataMap.length;
+    }
+    return hash;
+  }
+
+  set(key, value) {
+    let index = this.#hash(key);
+    if (!this.dataMap[index]) this.dataMap[index] = [];
+    this.dataMap[index].push([key, value]);
+    return this;
+  }
+
+  get(key) {
+    let index = this.#hash(key);
+    if (this.dataMap[index]) {
+      for (let i = 0; i < this.dataMap[index].length; i++) {
+        if (this.dataMap[index][i][0] === key) return this.dataMap[index][i][1];
+      }
+    }
+    return undefined;
+  }
+
+  keys() {
+    let allKeys = [];
+    for (let i = 0; i < this.dataMap.length; i++) {
+      if (this.dataMap[i]) {
+        for (let j = 0; j < this.dataMap[i].length; j++) {
+          allKeys.push(this.dataMap[i][j][0]);
+        }
+      }
+    }
+    return allKeys;
+  }
+}
+
+//////////////////////////////////////////
+/// GRAPH
+//////////////////////////////////////////
+class Graph {
+  constructor() {
+    this.adjacencyList = {};
+  }
+
+  addVertex(vertex) {
+    if (!this.adjacencyList[vertex]) {
+      this.adjacencyList[vertex] = [];
+      return true;
+    }
+    return false;
+  }
+
+  addEdge(vertex1, vertex2) {
+    if (this.adjacencyList[vertex1] && this.adjacencyList[vertex2]) {
+      this.adjacencyList[vertex1].push(vertex2);
+      this.adjacencyList[vertex2].push(vertex1);
+      return true;
+    }
+    return false;
+  }
+
+  removeEdge(vertex1, vertex2) {
+    if (this.adjacencyList[vertex1] && this.adjacencyList[vertex2]) {
+      this.adjacencyList[vertex1] = this.adjacencyList[vertex1].filter((v) => v !== vertex2);
+      this.adjacencyList[vertex2] = this.adjacencyList[vertex2].filter((v) => v !== vertex1);
+      return true;
+    }
+    return false;
+  }
+
+  removeVertex(vertex) {
+    if (!this.adjacencyList[vertex]) return undefined;
+    while (this.adjacencyList[vertex].length) {
+      let temp = this.adjacencyList[vertex].pop();
+      this.removeEdge(vertex, temp);
+    }
+    delete this.adjacencyList[vertex];
+    return this;
+  }
+}
+
+//////////////////////////////////////////
+/// HEAPS
+//////////////////////////////////////////
+
