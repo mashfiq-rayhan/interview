@@ -27,7 +27,7 @@ const merged = merge([1, 3, 5, 7], [2, 4, 6, 8, 9]);
 console.log(merged);
 
 function mergeSort(array) {
-  if (array.length === 1) return array;
+  if (array.length <= 1) return array;
   const midIndex = Math.floor(array.length / 2);
   const left = mergeSort(array.slice(0, midIndex));
   const right = mergeSort(array.slice(midIndex));

@@ -70,8 +70,8 @@ class BST {
 
   BFS() {
     if (this.root === null) return [];
-    let queue = [this.root];
-    let results = [];
+    const queue = [this.root];
+    const results = [];
     while (queue.length) {
       const currentNode = queue.shift();
       results.push(currentNode.value);
@@ -82,7 +82,7 @@ class BST {
   }
 
   DFSPreOrder() {
-    let results = [];
+    const results = [];
     function traverse(currentNode) {
       results.push(currentNode.value);
       if (currentNode.left) traverse(currentNode.left);
@@ -93,7 +93,7 @@ class BST {
   }
 
   DFSPostOrder() {
-    let results = [];
+    const results = [];
     function traverse(currentNode) {
       if (currentNode.left) traverse(currentNode.left);
       if (currentNode.right) traverse(currentNode.right);
@@ -104,7 +104,7 @@ class BST {
   }
 
   DFSInOrder() {
-    let results = [];
+    const results = [];
     function traverse(currentNode) {
       if (currentNode.left) traverse(currentNode.left);
       results.push(currentNode.value);

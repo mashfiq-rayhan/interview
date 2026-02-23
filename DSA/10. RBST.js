@@ -1,4 +1,7 @@
-class Node {
+//////////////////////////////////////////
+/// RECURSIVE BINARY SEARCH TREE
+//////////////////////////////////////////
+class RLeaf {
   constructor(value) {
     this.value = value;
     this.left = null;
@@ -6,13 +9,13 @@ class Node {
   }
 }
 
-class BST {
+class RecursiveBST {
   constructor() {
     this.root = null;
   }
 
   #rInsert(value, currentNode = this.root) {
-    if (currentNode === null) return new Node(value);
+    if (currentNode === null) return new RLeaf(value);
     if (value < currentNode.value) {
       currentNode.left = this.#rInsert(value, currentNode.left);
     } else if (value > currentNode.value) {
@@ -27,7 +30,8 @@ class BST {
   }
 
   minValue(currentNode) {
-    while (currentNode.left !== null) {
+    if (!currentNode) return null;
+    while (currentNode.left) {
       currentNode = currentNode.left;
     }
     return currentNode.value;
@@ -61,18 +65,14 @@ class BST {
 
   rContains(value, currentNode = this.root) {
     if (currentNode === null) return false;
-
     if (value === currentNode.value) return true;
-
-    if (value < currentNode.value) {
-      return this.rContains(value, currentNode.left);
-    } else {
-      return this.rContains(value, currentNode.right);
-    }
+    return value < currentNode.value
+      ? this.rContains(value, currentNode.left)
+      : this.rContains(value, currentNode.right);
   }
 }
 
-let myBST = new BST();
+let myBST = new RecursiveBST();
 
 const insert47 = myBST.rInsert(47);
 const insert21 = myBST.rInsert(21);
